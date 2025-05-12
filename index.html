@@ -1,28 +1,35 @@
 <form id="form">
-  <input type="date" id="date" required>
-  <input type="number" id="amount" required placeholder="Số tiền">
-  <select id="type">
-    <option value="Thu">Thu</option>
-    <option value="Chi">Chi</option>
-  </select>
-  <input type="text" id="note" placeholder="Ghi chú (thu từ đâu / chi cho gì)">
-  <button type="submit">Ghi nhận</button>
-</form>
-
-<h3>Tổng kết</h3>
-<button id="settle">Kết toán</button>
-<div id="result"></div>
-
-<h3>Lịch sử ghi nhận</h3>
-<table border="1" id="history">
-  <thead>
-    <tr><th>Ngày</th><th>Thu</th><th>Chi</th><th>Ghi chú</th></tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
-<script src="script.js"></script>
-<style>
+    <input type="date" id="date" required>
+    <input type="number" id="amount" required placeholder="Số tiền">
+    <select id="type">
+      <option value="Thu">Thu</option>
+      <option value="Chi">Chi</option>
+    </select>
+    <input type="text" id="note" placeholder="Ghi chú (thu từ đâu / chi cho gì)">
+    <button type="submit">Ghi nhận</button>
+  </form>
+  
+  <h3>Tổng kết</h3>
+  
+  <div class="settlement">
+    <input type="date" id="fromDate" placeholder="Từ ngày" required>
+    <input type="date" id="toDate" placeholder="Đến ngày" required>
+    <button id="settle">Kết toán</button>
+  </div>
+  
+  <div id="result"></div>
+  
+  <h3>Lịch sử ghi nhận</h3>
+  <table border="1" id="history">
+    <thead>
+      <tr><th>Ngày</th><th>Thu</th><th>Chi</th><th>Ghi chú</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  
+  <script src="script.js"></script>
+  
+  <style>
     body {
       font-family: Arial, sans-serif;
       padding: 30px;
@@ -34,7 +41,7 @@
       color: #333;
     }
   
-    form, .summary, .history {
+    form, .settlement, .summary, .history {
       margin-bottom: 30px;
       background-color: #fff;
       padding: 20px;
@@ -92,26 +99,14 @@
         width: 100%;
         margin-bottom: 10px;
       }
+  
+      table {
+        font-size: 13px;
+      }
+  
+      th, td {
+        padding: 8px;
+      }
     }
-
-      /* Responsive cải tiến cho điện thoại */
-  @media (max-width: 600px) {
-    form {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    input, select, button {
-      width: 100%;
-    }
-
-    table {
-      font-size: 13px;
-    }
-
-    th, td {
-      padding: 8px;
-    }
-  }
   </style>
   
